@@ -36,11 +36,11 @@ function getRepoContributors(owner, name, cb) {
 }
 
 getRepoContributors(repoOwner, repoName, (result) => {
-  for(var one of result) {
-    console.log(one.login + "   :   " + one.avatar_url);
-    const origFileName = one.login;
+  for(i of result) {
+    console.log(i.login + "   :   " + i.avatar_url);
+    const origFileName = i.login;
     const newFileName = `./${origFileName}.jpg`;
-    downloadImageByURL(one.avatar_url, newFileName);
+    downloadImageByURL(i.avatar_url, newFileName);
     console.log(newFileName);
   }
 });
